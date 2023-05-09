@@ -1,0 +1,22 @@
+{
+  "name": "docker_intro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.17.1",
+    "fs": "*",
+    "ip": "^1.1.5",
+    "mongodb": "^4.16.0",
+    "cowsay": "^1.4.0",
+    "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21"
+  }
+}
