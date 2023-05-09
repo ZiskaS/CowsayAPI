@@ -1,5 +1,6 @@
 const express = require('express');
 // Constants
+const cowsay = require('cowsay');
 const hostname = '0.0.0.0';
 const port = 8080;
 
@@ -11,6 +12,35 @@ const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://mongodb-container:27017'; const dbName = 'mock_database';
 const collectionName = 'users';
 app.use(bodyParser.json()); // for parsing application/json
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+
+
+//GET method route
+app.get('/cowsay', function(req, res, next){
+    res.send(cowsay.say({
+                                text: 'una vaca que habla',
+                                e: "OO",
+                                T: "U"
+                            })
+                )
+    }
+);
+
+
+// POST method route to insert customized text
+app.post('/cowsay', function(request, response){
+    response.send(cowsay.say({
+                                text: request.query.quote,
+                                e: "oO",
+                                T: "U "
+                            })
+                )
+    }
+);
+
+
+
 
 // GET method route
 app.get('/', function (req, res) {
